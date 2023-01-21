@@ -14,6 +14,14 @@
                 <img style="height: 100px;" src="/uploads/@user.Avatar" class="img-thumbnail" />
             }
             @user.UserName
+            @if (User.IsInRole("Admin"))
+            {
+                <form asp-action="Delete" asp-route-username="@user.UserName" method="post">
+                    <button type="submit" class="btn btn-sm btn-danger">
+                        Delete
+                    </button>
+                </form>
+            }
         </div>
     }
 </div>
